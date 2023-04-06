@@ -52,5 +52,5 @@ http://0.0.0.0:8080/department/getDepartmentDetailsById?id=1
 * Endpoint do DepartmentService comunicado-se com o UserService pelo Gateway:
 http://0.0.0.0:8080/department/getUsersByDeptId?deptId=1
 
-Artigo de referência:
+### Artigo de referência:
 https://blog.devops.dev/spring-boot-microservices-with-consul-spring-cloud-gateway-and-docker-789b624d1d32
