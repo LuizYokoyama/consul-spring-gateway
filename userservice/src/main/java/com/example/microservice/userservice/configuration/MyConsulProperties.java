@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyConsulProperties {
 
-    @Value("${teste.teste1}")
+    @Value("${teste}")
     private String teste1;
 
-    @Value("${teste.teste2}")
+    @Value("${teste}")
     private String teste2;
 
     public String getTeste2() {
