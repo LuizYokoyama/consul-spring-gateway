@@ -20,6 +20,7 @@ public class UserServiceController {
 
     @GetMapping("/getConfigFromConsul")
     public String getConfigFromValue() {
+        myConsulProperties.setProp("teste teste teste");
         return myConsulProperties.getProp();
     }
 
