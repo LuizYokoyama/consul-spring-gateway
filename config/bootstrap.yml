@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    consul:
+      config:
+        fail-fast: true
+        format: files
+        profile-separator: "-"
+        enabled: true
+        prefix: configuration
+        defaultContext: apps
