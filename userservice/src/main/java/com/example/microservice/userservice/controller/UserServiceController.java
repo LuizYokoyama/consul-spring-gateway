@@ -1,15 +1,27 @@
 package com.example.microservice.userservice.controller;
 
+import com.example.microservice.userservice.configuration.MyConsulProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("/user")
 public class UserServiceController {
+
+
+    @Autowired
+    private MyConsulProperties myConsulProperties;
+
+    @GetMapping("/getConfigFromConsul")
+    public String getConfigFromValue() {
+        return myConsulProperties.getProp();
+    }
 
     @GetMapping("/getUserDetailsById")
     public ResponseEntity<String> getUserDetailsById(@RequestParam String id){
