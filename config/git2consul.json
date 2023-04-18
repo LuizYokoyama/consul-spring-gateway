@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "repos" : [{
-    "name" : "userservice_config",
+    "name" : "user-service",
     "url" : "https://github.com/LuizYokoyama/consul-spring-gateway.git",
     "branches" : ["Consul_Git_properties"],
     "include_branch_name" : false,
