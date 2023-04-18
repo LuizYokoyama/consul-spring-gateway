@@ -5,7 +5,7 @@
     "url" : "https://github.com/LuizYokoyama/consul-spring-gateway.git",
     "branches" : ["Consul_Git_properties"],
     "include_branch_name" : false,
-    "source_root": "/userservice/src/main/resources/",
+    "source_root": "userservice/src/main/resources/",
     "hooks": [{
       "type" : "polling",
       "interval" : "1"
