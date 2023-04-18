@@ -7,6 +7,25 @@ destes microsserviços.
 Todas as configurações necessárias para o Service Discovery do Consul estão nos respectivos arquivos
 application.properties de cada microserviço e do gateway.
 
+### git2consul
+
+Também está incluíndo no docker-compose o um script que roda o git2consul 
+para pegar arquivos .yml .properties e .json do github e enviar/atualizar no Consul K/V.
+
+***Configurações para o git2consul:***
+
+As configurações podem ser alteradas em:
+
+*config/git2consul.json*
+
+Neste exemplo, os arquivos que serão enviado para o Consul K/V estão em:
+
+*userservice/src/main/resources/*
+
+Os arquivos de configuração localizados neste diretório serão automaticamente
+atualizados no Consul Keys/Values.
+
+Após a execução do docker-compose, pode-se verificar no Consul Keys/Values os valores atualizados.
 
 ### Instruções de execução:
 
@@ -52,5 +71,12 @@ http://0.0.0.0:8080/department/getDepartmentDetailsById?id=1
 * Endpoint do DepartmentService comunicado-se com o UserService pelo Gateway:
 http://0.0.0.0:8080/department/getUsersByDeptId?deptId=1
 
-### Artigo de referência:
+### Referências:
+
 https://blog.devops.dev/spring-boot-microservices-with-consul-spring-cloud-gateway-and-docker-789b624d1d32
+https://github.com/indrabasak/spring-consul-example/tree/master/client
+https://cloud.spring.io/spring-cloud-static/spring-cloud-consul/2.2.3.RELEASE/reference/html/appendix.html
+
+#### Script de autoria da Jhipster:
+
+https://github.com/jhipster/consul-config-loader
