@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "repos" : [{
+    "name" : "configuration_on_github",
+    "url" : "https://github.com/LuizYokoyama/consul-spring-gateway.git",
+    "branches" : ["Consul_Git_properties"],
+    "include_branch_name" : false,
+    "source_root": "consul-config/",
+    "hooks": [{
+      "type" : "polling",
+      "interval" : "1"
+    }]
+  }]
+}

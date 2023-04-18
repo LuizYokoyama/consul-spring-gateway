@@ -6,9 +6,23 @@ services:
     image: consul:latest
     ports:
       - "8500:8500"
+      - "8600:8600"
+      - "8300:8300"
     command: 'agent -server -bootstrap-expect=1 -ui -bind=0.0.0.0 -client=0.0.0.0'
     networks:
       - microservices-network
+  git2consul:
+    container_name: git2consul
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: git2consul:latest
+    command: '--endpoint consul-server --port 8500 --config-file /config/git2consul.json'
+    volumes:
+      - ./config/:/config
+    networks:
+      - microservices-network
+
   userservice:
     container_name: userservice
     image: userservice:latest
