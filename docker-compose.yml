@@ -17,9 +17,15 @@ services:
       dockerfile: Dockerfile
       context: .
     image: git2consul:latest
-    command: '--endpoint consul-server --port 8500 --config-file /config/git2consul.json'
     volumes:
       - ./config/:/config
+    environment:
+      #- CONFIG_MODE=filesystem
+      - CONFIG_MODE=git
+      - INIT_SLEEP_SECONDS=5
+      - CONSUL_URL=consul-server
+      - ENABLE_SPRING=true
+      - ENABLE_MICRONAUT=false
     networks:
       - microservices-network
 
