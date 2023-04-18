@@ -1,21 +1,25 @@
 package com.example.microservice.userservice.configuration;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 @RefreshScope
 @Configuration
-@ConfigurationProperties("teste.properties")
 public class MyConsulProperties {
 
-    private String teste;
+    @Value("${teste.teste1}")
+    private String teste1;
 
-    public String getProp() {
-        return teste;
+    @Value("${teste.teste2}")
+    private String teste2;
+
+    public String getTeste2() {
+        return teste2;
     }
 
-    public void setProp(String prop) {
-        this.teste = prop;
+    public String getTeste1() {
+        return teste1;
     }
+
 }

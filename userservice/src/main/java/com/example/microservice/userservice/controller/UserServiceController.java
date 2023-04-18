@@ -18,10 +18,16 @@ public class UserServiceController {
     @Autowired
     private MyConsulProperties myConsulProperties;
 
-    @GetMapping("/getConfigFromConsul")
-    public String getConfigFromValue() {
-        myConsulProperties.setProp("teste teste teste");
-        return myConsulProperties.getProp();
+    @GetMapping("/getConfigFromConsul1")
+    public String getConfigFromValue1() {
+
+        return myConsulProperties.getTeste1();
+    }
+
+    @GetMapping("/getConfigFromConsul2")
+    public String getConfigFromValue2() {
+
+        return myConsulProperties.getTeste2();
     }
 
     @GetMapping("/getUserDetailsById")
