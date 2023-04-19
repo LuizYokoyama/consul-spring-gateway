@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 @RefreshScope
 @Configuration
-@ConfigurationProperties("teste.yml")
+@ConfigurationProperties("teste")
 public class MyConsulProperties {
 
-    @Value("${teste.teste1}")
+    @Value("${teste1}")
     private String teste1;
 
-    @Value("${teste.teste1}")
+    @Value("${teste.teste2}")
     private String teste2;
 
     public void setTeste1(String teste1) {
