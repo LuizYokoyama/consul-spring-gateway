@@ -18,16 +18,58 @@ As configurações podem ser alteradas em:
 
 *config/git2consul.json*
 
-Neste exemplo, os arquivos que serão enviado para o Consul K/V estão em:
+Neste exemplo, os arquivos que serão enviados para o Consul K/V estão em:
 
 *userservice/src/main/resources/*
 
-Os arquivos de configuração localizados neste diretório serão automaticamente
+Os arquivos/diretórios de configuração localizados neste diretório serão automaticamente
 atualizados no Consul Keys/Values.
 
-Após a execução do docker-compose, pode-se verificar no Consul Keys/Values os valores atualizados.
+Após a execução do ***docker-compose***, pode-se verificar no Consul Keys/Values os valores atualizados.
 
-### Instruções de execução:
+### Usando os K/V do consul
+
+O **userservice** foi atualizado para usar as *Keys/Values* do Consul.
+
+Em seu arquivo pom.xml foram adicionados :
+
+***spring-cloud-starter-bootstrap***
+
+***spring-boot-configuration-processor***
+
+Para usar o bootstrap, o aruivo de configuração application.properties teve que ser alterado para bootstrap.properties
+*(também poderia-se usar bootstrap.yml)*. Também é necessário mover os arquivos para uma subpasta, como a ***config***.
+
+Para se acessar os valores no K/V do Consul, são necessárias as seguintes configurações:
+O formato do arquivo e três níveis da chave ***(exigido pelo Spring Cloud)***, para formar a chave completa. O prefixo deve ser fo nome do repositório 
+definido no ***config/git2consul.json***, uma pasta, como **config**, e o nome do arquivo e sua extenção.
+
+![img_2.png](img_2.png)
+
+No Consul, a chave ficará assim:
+
+![img_3.png](img_3.png)
+
+Essa chave de ***três níveis*** é uma exigência para que o *Spring Cloud* possa acessá-la através do código:
+
+![img_4.png](img_4.png)
+
+
+
+Ao rodar este sistema, os valores gravados no K/V do Caonsul poderão ser acessados em:
+
+http://0.0.0.0:8080/user/getConfigFromConsul1
+
+http://0.0.0.0:8080/user/getConfigFromConsul2
+
+Nos links acima são lidos valores que estão em */userservice/src/main/resources/config/teste.yml*
+
+
+Ao se atualizar o arquivo acima no github, os valores no Consul são automaticamente atualizados pelo git2consul.
+
+
+
+### Instruções gerais de execução:
 
 * Entre em cada subdiretorio, *depservice, gatewayservice, orgservice, userservice*, e execute o seguinte comando dentro
 de cada um:
