@@ -38,11 +38,13 @@ Em seu arquivo pom.xml foram adicionados :
 ***spring-boot-configuration-processor***
 
 Para usar o bootstrap, o aruivo de configuração application.properties teve que ser alterado para bootstrap.properties
-*(também poderia-se usar bootstrap.yml)*. Também é necessário mover os arquivos para uma subpasta, como a ***config***.
+*(também poderia-se usar bootstrap.yml)*. Também é necessário mover os arquivos para um sub-diretório como o ***config*** 
+neste caso.
 
 Para se acessar os valores no K/V do Consul, são necessárias as seguintes configurações:
-O formato do arquivo e três níveis da chave ***(exigido pelo Spring Cloud)***, para formar a chave completa. O prefixo deve ser fo nome do repositório 
-definido no ***config/git2consul.json***, uma pasta, como **config**, e o nome do arquivo e sua extenção.
+Além do formato do arquivo (**yaml neste caso**), são necessários três nomes ,para fazer uma chave de três níveis no Consul 
+***(exigido pelo Spring Cloud)***, e assim, formar a chave completa de acesso. O ***prefixo*** deve ser fo nome do repositório 
+definido no ***config/git2consul.json***. O ***default-context***, neste caso, é o sub-diretório **config**, e o ***data-key*** nome do arquivo e sua extenção.
 
 ![img_2.png](img_2.png)
 
