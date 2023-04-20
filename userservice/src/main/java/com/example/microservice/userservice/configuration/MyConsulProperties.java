@@ -7,10 +7,9 @@ import org.springframework.context.annotation.Configuration;
 
 @RefreshScope
 @Configuration
-@ConfigurationProperties("teste")
 public class MyConsulProperties {
 
-    @Value("${teste1}")
+    @Value("${teste.teste1}")
     private String teste1;
 
     @Value("${teste.teste2}")
