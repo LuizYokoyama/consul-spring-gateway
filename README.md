@@ -44,17 +44,21 @@ neste caso.
 Para se acessar os valores no K/V do Consul, são necessárias as seguintes configurações:
 Além do formato do arquivo (**yaml neste caso**), são necessários três nomes, para fazer uma chave de três níveis no Consul 
 ***(exigido pelo Spring Cloud)*** e, assim, formar a chave completa de acesso. O ***prefixo*** deve ser o nome do repositório 
-definido na configuração do git2consul em ***config/git2consul.json***, porque o ***git2consul*** salva os arquivos no ***K/V do Consul*** com o ***prefixo***
+definido na configuração do git2consul em ***config/git2consul.json***, porque o ***git2consul*** salva os arquivos no 
+***K/V do Consul*** com o ***prefixo***
 do repositório, que neste caso, é ***user-service***. O ***default-context***, neste caso, é o sub-diretório **config**, e o 
 ***data-key*** que, neste caso, deve ser o ***nome do arquivo e sua extenção***.
 
 ![img_2.png](img_2.png)
 
-No Consul, a chave ficará assim:
+No Consul, a ***chave*** ficará assim: ***user-service/config/teste.yml*** E o seu ***value*** será o conteúdo do arquivo:
 
 ![img_3.png](img_3.png)
 
-Essa chave de ***três níveis*** é uma exigência para que o *Spring Cloud* possa acessá-la através do código:
+Caso essa chave de três níveis não fosse definida assim, os valores ***default*** da chave que o Spring Cloud acessaria 
+seriam: ***config/application/data***. Sendo assim, não acessaria os valores gravados pelo ***git2consul***.
+
+Essa chave de ***três níveis*** é uma exigência para que o *Spring Cloud* possa acessar o seu ***value*** através do código:
 
 ![img_4.png](img_4.png)
 
