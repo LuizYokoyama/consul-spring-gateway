@@ -46,7 +46,7 @@ Além do formato do arquivo (**yaml neste caso**), são necessários três nomes
 ***(exigido pelo Spring Cloud)*** e, assim, formar a chave completa de acesso. O ***prefixo*** deve ser o nome do repositório 
 definido na configuração do git2consul em ***config/git2consul.json***, porque o ***git2consul*** salva os arquivos no 
 ***K/V do Consul*** com o ***prefixo***
-do repositório, que neste caso, é ***user-service***. O ***default-context***, neste caso, é o sub-diretório **config**, e o 
+do repositório que, neste caso, é ***user-service***. O ***default-context***, neste caso, é o sub-diretório **config**, e o 
 ***data-key*** que, neste caso, deve ser o ***nome do arquivo e sua extenção***.
 
 ![img_2.png](img_2.png)
