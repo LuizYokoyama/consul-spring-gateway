@@ -6,12 +6,12 @@
     <parent>
         <groupId>com.example.microservice</groupId>
         <artifactId>consul-example</artifactId>
-        <version>1</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>userservice</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+
     <name>userservice</name>
     <description>userservice</description>
 

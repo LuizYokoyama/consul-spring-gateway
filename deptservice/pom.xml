@@ -5,13 +5,13 @@
     <parent>
         <groupId>com.example.microservice</groupId>
         <artifactId>consul-example</artifactId>
-        <version>1</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>com.example.microservices</groupId>
     <artifactId>deptservice</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+
     <name>deptservice</name>
     <description>deptservice</description>
 
