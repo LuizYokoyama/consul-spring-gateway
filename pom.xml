@@ -18,7 +18,7 @@
     <name>consul-gateway-package</name>
     <description>A application used as an example of Spring Gateway Consul package and how to set up pushing
         the artifact to the Central Repository.</description>
-    <url>https://github.com/LuizYokoyama/consul-spring-gateway</url>
+    <url>https://github.com/LuizYokoyama/consul-spring-gateway/tree/maven_repo_deploy</url>
 
     <licenses>
         <license>
@@ -36,9 +36,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/LuizYokoyama/consul-spring-gateway</connection>
-        <developerConnection>scm:git:ssh://github.com/LuizYokoyama/consul-spring-gateway</developerConnection>
-        <url>https://github.com/LuizYokoyama/consul-spring-gateway/tree/maven_inheritance</url>
+        <connection>scm:git:git://github.com/LuizYokoyama/consul-spring-gateway.git</connection>
+        <developerConnection>scm:git:ssh://github.com/LuizYokoyama/consul-spring-gateway.git</developerConnection>
+        <url>https://github.com/LuizYokoyama/consul-spring-gateway/tree/maven_repo_deploy</url>
     </scm>
 
 
