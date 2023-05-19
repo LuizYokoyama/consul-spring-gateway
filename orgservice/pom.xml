@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.example.microservice</groupId>
-        <artifactId>consul-example</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>io.github.LuizYokoyama</groupId>
+        <artifactId>consul-gateway-package</artifactId>
+        <version>0.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 

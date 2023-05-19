@@ -79,11 +79,11 @@ Ao se atualizar o arquivo acima no github, os valores no Consul são automaticam
 
 ### Instruções gerais de execução:
 
-* Execute o seguinte comando dentro deste diretorio raiz do projeto, para que todos os módulos sejam construídos:
+* Entre em cada subdiretorio, depservice, gatewayservice, orgservice, userservice, e execute o seguinte comando dentro de cada um:
 
 ***mvn package -Dmaven.test.skip***
 
-* Depois, execute o seguinte comando:
+* Depois, volte ao diretorio raiz consul-spring-gateway e execute o seguinte comando:
 
 ***docker-compose up -d --build***
 

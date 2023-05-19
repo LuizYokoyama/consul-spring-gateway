@@ -9,19 +9,38 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.example.microservice</groupId>
-    <artifactId>consul-example</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>consul-example</name>
-    <packaging>pom</packaging>
-    <description>consul-example</description>
 
-    <modules>
-        <module>gatewayservice</module>
-        <module>deptservice</module>
-        <module>userservice</module>
-        <module>orgservice</module>
-    </modules>
+    <groupId>io.github.LuizYokoyama</groupId>
+    <artifactId>consul-gateway-package</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+
+    <name>consul-gateway-package</name>
+    <description>A application used as an example of Spring Gateway Consul package and how to set up pushing
+        the artifact to the Central Repository.</description>
+    <url>https://github.com/LuizYokoyama/consul-spring-gateway</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Luiz Yokoyama</name>
+            <email>luizyfs@gmail.com</email>
+            <organizationUrl>https://github.com/LuizYokoyama</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/LuizYokoyama/consul-spring-gateway</connection>
+        <developerConnection>scm:git:ssh://github.com/LuizYokoyama/consul-spring-gateway</developerConnection>
+        <url>https://github.com/LuizYokoyama/consul-spring-gateway/tree/maven_inheritance</url>
+    </scm>
+
 
     <properties>
         <java.version>17</java.version>

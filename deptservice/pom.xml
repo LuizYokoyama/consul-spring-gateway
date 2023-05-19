@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.example.microservice</groupId>
-        <artifactId>consul-example</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>io.github.LuizYokoyama</groupId>
+        <artifactId>consul-gateway-package</artifactId>
+        <version>0.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.example.microservices</groupId>
+    <groupId>io.github.LuizYokoyama</groupId>
     <artifactId>deptservice</artifactId>
     <name>deptservice</name>
     <description>deptservice</description>
