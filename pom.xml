@@ -11,7 +11,7 @@
 
     <groupId>io.github.LuizYokoyama</groupId>
     <artifactId>consul-gateway-package</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>consul-gateway-package</name>
@@ -36,7 +36,7 @@
 
     <scm>
         <connection>scm:git:ssh://git@github.com/LuizYokoyama/consul-spring-gateway.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/LuizYokoyama/consul-spring-gateway.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/LuizYokoyama/consul-spring-gateway.git</developerConnection>
         <url>https://github.com/LuizYokoyama/consul-spring-gateway/tree/maven_repo_deploy</url>
       <tag>example</tag>
   </scm>
@@ -57,6 +57,16 @@
                     </execution>
                 </executions>
             </plugin>
+
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-release-plugin</artifactId>
+               <version>3.0.0</version>
+            <configuration>
+                <tagBase>https://github.com/LuizYokoyama/consul-spring-gateway/tree/maven_repo_deplo</tagBase>
+            </configuration>
+        </plugin>
+
         </plugins>
     </build>
 
