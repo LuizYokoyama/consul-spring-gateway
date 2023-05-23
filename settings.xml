@@ -14,4 +14,19 @@
 
     </profiles>
 
+
+    <servers>
+
+        <server>
+            <id>example.release</id>
+            <username>luizyokoyama</username>
+            <password>thephrase</password>
+        </server>
+        <server>
+            <id>example.snapshot</id>
+            <username>luizyokoyama</username>
+            <password>thephrase</password>
+        </server>
+
+    </servers>
 </settings>
