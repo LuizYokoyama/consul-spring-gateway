@@ -63,6 +63,9 @@
                <artifactId>maven-release-plugin</artifactId>
                <version>3.0.0</version>
             <configuration>
+                <stage>
+                    <stagingRepository>s01.oss.sonatype.org</stagingRepository>
+                </stage>
                 <tagBase>https://github.com/LuizYokoyama/consul-spring-gateway/tree/maven_repo_deplo</tagBase>
             </configuration>
         </plugin>
