@@ -39,7 +39,7 @@
         <developerConnection>scm:git:https://github.com/LuizYokoyama/consul-spring-gateway.git</developerConnection>
         <url>https://github.com/LuizYokoyama/consul-spring-gateway/tree/maven_repo_deploy</url>
       <tag>example</tag>
-  </scm>
+    </scm>
 
 
     <properties>

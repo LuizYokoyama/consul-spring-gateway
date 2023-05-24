@@ -7,7 +7,6 @@
         <groupId>io.github.LuizYokoyama</groupId>
         <artifactId>consul-gateway-package</artifactId>
         <version>0.0.1</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>io.github.LuizYokoyama</groupId>
