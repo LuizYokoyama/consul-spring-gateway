@@ -36,7 +36,7 @@ Para isso, as seguintes tags (requisitos obrigatórios) foram adicionadas ao pom
 
 #### Upload:
 
-Apos os registros, fazer o login em: https://s01.oss.sonatype.org/
+Após os registros, fazer o login em: https://s01.oss.sonatype.org/
 
 Acessar Staging Upload
 
