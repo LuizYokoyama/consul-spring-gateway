@@ -1,3 +1,117 @@
+# Adicionando o próprio artifact no  Maven Central Repository
+
+![img_5.png](img_5.png)
+
+
+Todas as dependências deste projeto foram adicionadas no Maven Central Repository, bastando apenas referir-se ao artifactId
+como na imagem acima.
+
+## Passo a passo realizado para na criação (manuanmente) deste artifact no Maven Central Repository:
+
+#### Criar conta JIRA:
+
+https://issues.sonatype.org/secure/Signup!default.jspa
+
+#### Registrar o próprio artifactID:
+
+https://issues.sonatype.org/secure/CreateIssue.jspa?pid=10134&issuetype=21
+
+Normamente leva 2 dias comerciais para ser aprovado.
+
+### Requisitos mínimos:
+
+#### POM:
+
+O arquivo pom.xml do diretório raiz deste projeto foi usado como package deste novo artifact.
+
+Para isso, as seguintes tags (requisitos obrigatórios) foram adicionadas ao pom.xml do diretório raiz deste projeto:
+
+***packaging = pom***
+
+***licenses***
+
+***developers***
+
+***scm***
+
+#### Upload:
+
+Apos os registros, fazer o login em: https://s01.oss.sonatype.org/
+
+Acessar Staging Upload
+
+![img_6.png](img_6.png)
+
+Preencher o seguinte:
+
+![img_7.png](img_7.png)
+
+Fazer o upload do arquivo pom.xml:
+
+![img_8.png](img_8.png)
+
+**É obrigatório criar e enviar os arquivos sha1, md5 e asc, como se segue:**
+
+Primeiro renomeiar o arquivo pom.xml para a sua identificação completa padrão:
+
+*consul-gateway-package-0.0.1.pom*
+
+**A partir dele, criar os demais arquivos:**
+
+Executar: 
+
+sha1sum consul-gateway-package-0.0.1.pom > consul-gateway-package-0.0.1.pom.sha1
+
+md5sum consul-gateway-package-0.0.1.pom > consul-gateway-package-0.0.1.pom.md5
+
+Para a criação do .asc:
+
+Gerar a key-pair, executando:
+
+***gpg --gen-key***
+
+Distribuir como public key, executando:
+
+***gpg --keyserver keyserver.ubuntu.com --send-keys SUA-KEY-GERADA-AQUI***
+
+Verificar: *gpg --keyserver keyserver.ubuntu.com --recv-keys SUA-KEY-GERADA-AQUI*
+
+Se não funcionar, enviar novamente a key.
+
+Por último, assinar o arquivo, executando:
+
+***gpg -ab consul-gateway-package-0.0.1.pom***
+
+#### Agora é só fazer o upload desses 3 arquivos gerados.
+Terminado, basta clicar em Upload Artifac:
+
+![img_9.png](img_9.png)
+
+O artifact será colocado em staging e verificado se cumpre todos os requisitos obrigatórios.
+Em caso qualquer erro na verificação, deve ser feito o upload novamente de um novo repositório.
+
+Acessar Staging Repositories:
+
+![img_10.png](img_10.png)
+
+*Utilizar o botão Refresh para atualizar a lista.* Se estiver tudo certo (pode demorar um pouco a verificação), 
+o botão de release será liberado e ao clicar o artifact será publicado e nunca mais poderá ser alterado.
+
+Agora é só referenciar esse artifact como *parent* nos demais pom.xml deste projeto.
+
+### Referências desta parte:
+
+https://maven.apache.org/repository/guide-central-repository-upload.html
+
+https://central.sonatype.org/publish/publish-guide/
+
+https://central.sonatype.org/publish/requirements/gpg/#developer-information
+
+https://central.sonatype.org/publish/requirements/coordinates/
+
+
+
+
 # Spring Boot Microservices with Consul, Spring Cloud Gateway and Docker
 
 Este playground possui 3 microserviços demo Spring Boot Service: deptservice, orgservice e userservice.

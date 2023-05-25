@@ -10,10 +10,7 @@
     </parent>
 
     <artifactId>userservice</artifactId>
-
     <name>userservice</name>
     <description>userservice</description>
-
-
 
 </project>
