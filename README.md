@@ -6,7 +6,7 @@
 Todas as dependências deste projeto foram adicionadas no Maven Central Repository, bastando apenas referir-se ao artifactId
 como na imagem acima.
 
-## Passo a passo realizado para na criação (manuanmente) deste artifact no Maven Central Repository:
+## Passo a passo realizado para na criação (manuaumente) deste artifact no Maven Central Repository:
 
 #### Criar conta JIRA:
 
