@@ -130,3 +130,8 @@ https://cloud.spring.io/spring-cloud-static/spring-cloud-consul/2.2.3.RELEASE/re
 #### Script de autoria da Jhipster:
 
 https://github.com/jhipster/consul-config-loader
+
+### Documentação do git2consul:
+
+https://github.com/KohlsTechnology/git2consul-go
+
