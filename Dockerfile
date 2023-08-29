@@ -1,21 +1,9 @@
 FROM alpine:3.12
 
-RUN apk --update add nodejs npm git openssh curl bash inotify-tools jq && \
-    rm -rf /var/cache/apk/* && \
-    npm install -g simplywatch@2.5.7 && \
-    npm install -g git2consul@0.12.13 && \
-    mkdir -p /etc/git2consul.d
+ADD /gonsul /
 
-ADD /load-config.sh /
-ADD /upload-consul-file.sh /
-VOLUME /config
+ADD /load-gonsul.sh /
 
-ENV CONFIG_MODE=filesystem
-ENV INIT_SLEEP_SECONDS=5
-ENV CONSUL_URL=localhost
-ENV CONSUL_PORT=8500
-ENV CONFIG_DIR=/config
-ENV ENABLE_SPRING=true
-ENV ENABLE_MICRONAUT=false
+ENV INIT_SLEEP_SECONDS=6
 
-CMD /load-config.sh
+CMD /load-gonsul.sh
