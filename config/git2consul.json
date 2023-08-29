@@ -1,11 +1,11 @@
 {
   "version": "1.0",
   "repos" : [{
-    "name" : "user-service",
-    "url" : "https://github.com/LuizYokoyama/consul-spring-gateway.git",
-    "branches" : ["Consul_Git_properties"],
+    "name" : "prv-test",
+    "url" : "ssh://git@github.com/LuizYokoyama/prv-test.git",
+    "branches" : [""],
     "include_branch_name" : false,
-    "source_root": "userservice/src/main/resources/",
+    "source_root": "config/",
     "hooks": [{
       "type" : "polling",
       "interval" : "1"

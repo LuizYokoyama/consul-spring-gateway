@@ -3,7 +3,7 @@ version: "3.8"
 services:
   consul-server:
     container_name: consul-server
-    image: consul:latest
+    image: hashicorp/consul:1.14
     ports:
       - "8500:8500"
       - "8600:8600"
@@ -11,21 +11,17 @@ services:
     command: 'agent -server -bootstrap-expect=1 -ui -bind=0.0.0.0 -client=0.0.0.0'
     networks:
       - microservices-network
-  git2consul:
-    container_name: git2consul
+  gonsul:
+    container_name: gonsul
     build:
       dockerfile: Dockerfile
       context: .
-    image: git2consul:latest
+    image: gonsul:latest
     volumes:
-      - ./config/:/config
+      - ./:/config
     environment:
-      #- CONFIG_MODE=filesystem
-      - CONFIG_MODE=git
-      - INIT_SLEEP_SECONDS=5
-      - CONSUL_URL=consul-server
-      - ENABLE_SPRING=true
-      - ENABLE_MICRONAUT=false
+      - GONSUL_REPO_URL=/home/luiz/dev/consul-spring-gateway/userservice/src/main/resources/config
+      - GONSUL_CONSUL_URL=http://localhost:8500
     networks:
       - microservices-network
 
