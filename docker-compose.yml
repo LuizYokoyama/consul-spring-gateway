@@ -18,7 +18,8 @@ services:
       context: .
     image: gonsul:latest
     volumes:
-      - ./userservice/src/main/resources/config/:/config
+#      - ./userservice/src/main/resources/config/:/config
+      - ./config/:/config
     environment:
       - GONSUL_CONSUL_URL=http://consul-server:8500
     networks:
