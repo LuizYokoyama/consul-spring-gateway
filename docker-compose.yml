@@ -18,10 +18,9 @@ services:
       context: .
     image: gonsul:latest
     volumes:
-      - ./:/config
+      - ./userservice/src/main/resources/config/:/config
     environment:
-      - GONSUL_REPO_URL=/home/luiz/dev/consul-spring-gateway/userservice/src/main/resources/config
-      - GONSUL_CONSUL_URL=http://localhost:8500
+      - GONSUL_CONSUL_URL=http://consul-server:8500
     networks:
       - microservices-network
 #
