@@ -20,16 +20,12 @@ services:
     volumes:
       - type: bind
         source: ~/.ssh
-        target: /.ssh
+        target: /tmp/.ssh
         read_only: true
       - type: bind
         source: ./Gonsul
         target: /Gonsul
         read_only: true
-      - type: bind
-        source: ./config
-        target: /config
-        read_only: false
     environment:
       - GONSUL_CONSUL_URL=http://consul-server:8500
     networks:

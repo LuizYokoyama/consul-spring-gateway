@@ -6,6 +6,12 @@
 echo "----------------------------------------------------------------------
     Starting Gonsul
     ----------------------------------------------------------------------"
+# Copy .ssh files from bind-mount to the user's home directory.
+# Permissions and ownership of the copy can be modified without propagating changes to the host.
+cp -R /tmp/.ssh /.ssh
+
+# Give the user ownership of the .ssh files in their home directory.
+chown -R gonsul:gonsul /.ssh
 
 sleep $INIT_SLEEP_SECONDS
 
