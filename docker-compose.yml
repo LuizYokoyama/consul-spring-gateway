@@ -11,6 +11,7 @@ services:
     command: 'agent -server -bootstrap-expect=1 -ui -bind=0.0.0.0 -client=0.0.0.0'
     networks:
       - microservices-network
+
   gonsul:
     container_name: gonsul
     build:
