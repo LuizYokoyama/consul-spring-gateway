@@ -21,9 +21,13 @@ As configurações podem ser alteradas em:
 ![img.png](img.png)
 
 
-Neste exemplo, os arquivos que serão enviados para o ***Consul K/V*** estão no repositório privado indicado no parâmetro ***repo-url***:
+Neste exemplo, os arquivos que serão enviados para o ***Consul K/V*** estão no repositório privado indicado no parâmetro ***repo-url***.
 
-*'git@github.com:LuizYokoyama/prv-test.git'*
+Será necessário criar seu proprio repositporio privado e informa-lo em ***repo-url***.
+
+Este repositório privado possui a seguinte estrutura e conteúdo:
+
+![img_7.png](img_7.png)
 
 Os arquivos/diretórios de configuração localizados neste repo serão automaticamente
 atualizados no Consul Keys/Values, a cada *60 segundos*, conforme o parâmetro ***poll-interval***.
