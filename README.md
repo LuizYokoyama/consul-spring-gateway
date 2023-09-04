@@ -1,68 +1,70 @@
 # Spring Boot Microservices with Consul, Spring Cloud Gateway and Docker
 
-Este playground possui 3 microserviços demo Spring Boot Service: deptservice, orgservice e userservice.
+Este playground possui 2 microserviços demo Spring Boot Service: deptservice e userservice.
 Também possui um app, *gatewayservice*, Spring Cloud Gateway que usa o Consul Service Discovery como gateway
 destes microsserviços.
 
 Todas as configurações necessárias para o Service Discovery do Consul estão nos respectivos arquivos
 application.properties de cada microserviço e do gateway.
 
-### git2consul
+### Gonsul com ssh
 
-Também está incluíndo no docker-compose o um script que roda o git2consul 
-para pegar arquivos .yml .properties e .json do github e enviar/atualizar no Consul K/V.
+Também está incluíndo no docker um script que roda o Gonsul
+para pegar arquivos .yml .properties etc do github privado com ssh e enviar/atualizar no Consul K/V.
 
-***Configurações para o git2consul:***
+***Configurações para o Gonsul:***
 
 As configurações podem ser alteradas em:
 
-*config/git2consul.json*
+***Gonsul/gonsul.conf***
 
-Neste exemplo, os arquivos que serão enviados para o Consul K/V estão em:
+![img.png](img.png)
 
-*userservice/src/main/resources/*
 
-Os arquivos/diretórios de configuração localizados neste diretório serão automaticamente
-atualizados no Consul Keys/Values.
+Neste exemplo, os arquivos que serão enviados para o ***Consul K/V*** estão no repositório privado indicado no parâmetro ***repo-url***:
+
+*git@github.com:LuizYokoyama/prv-test.git*
+
+Os arquivos/diretórios de configuração localizados neste repo serão automaticamente
+atualizados no Consul Keys/Values, a cada *60 segundos*, conforme o parâmetro ***poll-inverval***.
+
+* Em repo-ssh-key, informe o arquivo de sua chave ssh. O script ja deixará no diretório /.ssh do docker.
+
+* Se ainda não tiver uma chave ssh, é necessário criar uma chave ssh e cadastra-la no github, conforme o link: https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+* Pode ser que no primeiro uso desta chave o github bloqueie seu uso. Sendo, então, necessário aprovar seu uso em: https://github.com/settings/keys
+
 
 Após a execução do ***docker-compose***, pode-se verificar no Consul Keys/Values os valores atualizados.
 
+![img_3.png](img_3.png)
+
 ### Usando os K/V do consul
 
-O **userservice** foi atualizado para usar as *Keys/Values* do Consul.
+O **userservice** foi atualizado para usar as *Keys/Values* do **Consul**.
 
 Em seu arquivo pom.xml foram adicionados :
 
-***spring-cloud-starter-bootstrap***
-
-***spring-boot-configuration-processor***
-
-Para usar o bootstrap, o arquivo de configuração application.properties teve que ser alterado para bootstrap.properties
-*(também poderia-se usar bootstrap.yml)*. Também é necessário mover os arquivos para um sub-diretório como o ***config*** 
-neste caso.
+***spring-cloud-starter-consul-config***
 
 Para se acessar os valores no K/V do Consul, são necessárias as seguintes configurações:
 Além do formato do arquivo (**yaml neste caso**), são necessários três nomes, para fazer uma chave de três níveis no Consul 
-***(exigido pelo Spring Cloud)*** e, assim, formar a chave completa de acesso. O ***prefixo*** deve ser o nome do repositório 
-definido na configuração do git2consul em ***config/git2consul.json***, porque o ***git2consul*** salva os arquivos no 
-***K/V do Consul*** com o ***prefixo***
-do repositório que, neste caso, é ***user-service***. O ***default-context***, neste caso, é o sub-diretório **config**, e o 
-***data-key*** que, neste caso, deve ser o ***nome do arquivo e sua extenção***.
+***(exigido pelo Spring Cloud)*** e, assim, formar a chave completa de acesso. O ***prefixo*** pode ser o nome do serviço
+que, neste caso, é ***user-service***.  ***default-context***, neste caso, é o sub-diretório **config**, e o 
+***data-key*** que, neste caso, deve ser o ***nome do arquivo sem sua extenção***.
 
-![img_2.png](img_2.png)
+![img_5.png](img_5.png)
 
-No Consul, a ***chave*** ficará assim: ***user-service/config/teste.yml*** E o seu ***value*** será o conteúdo do arquivo:
+No Consul, a ***chave*** ficará assim: ***user-service/config/teste6*** E o seu ***value*** será o conteúdo do arquivo:
 
 ![img_3.png](img_3.png)
 
 Caso essa chave de três níveis não fosse definida assim, os valores ***default*** da chave que o Spring Cloud acessaria 
-seriam: ***config/application/data***. Sendo assim, não acessaria os valores gravados pelo ***git2consul***.
+seriam: ***config/application/data***.
 
 Essa chave de ***três níveis*** é uma exigência para que o *Spring Cloud* possa acessar o seu ***value*** através do código:
 
 ![img_4.png](img_4.png)
-
-
 
 Ao rodar este sistema, os valores gravados no K/V do Consul poderão ser acessados em:
 
@@ -70,16 +72,18 @@ http://0.0.0.0:8080/user/getConfigFromConsul1
 
 http://0.0.0.0:8080/user/getConfigFromConsul2
 
-Nos links acima são lidos valores de */userservice/src/main/resources/config/teste.yml* que foram enviados para o K/V do Consul.
+Nos links acima são lidos os valores do arquivo *teste6.yml* do repo privado, que foram enviados para o K/V do Consul.
+
+![img_6.png](img_6.png)
 
 
-Ao se atualizar o arquivo acima no github, os valores no Consul são automaticamente atualizados pelo git2consul.
+Ao se atualizar o arquivo acima no github, os valores no Consul são automaticamente atualizados pelo ***Gonsul***.
 
 
 
 ### Instruções gerais de execução:
 
-* Entre em cada subdiretorio, *depservice, gatewayservice, orgservice, userservice*, e execute o seguinte comando dentro
+* Entre em cada subdiretorio, *depservice, gatewayservice, userservice*, e execute o seguinte comando dentro
 de cada um:
 
 ***mvn package -Dmaven.test.skip***
@@ -92,17 +96,9 @@ de cada um:
 
 ***http://0.0.0.0:8500***
 
-Deve ser possível ver a seguinte página do Consul:
 
-![img.png](img.png)
 
 ### Endpoints:
-
-* Acesso do OrganizationService pelo Gateway:
-http://0.0.0.0:8080/organization/details
-
-* Acesso direto OrganizationService (sem gateway):
-http://0.0.0.0:3003/organization/details
 
 
 * UserService pelo Gateway:
@@ -127,11 +123,9 @@ https://blog.devops.dev/spring-boot-microservices-with-consul-spring-cloud-gatew
 https://github.com/indrabasak/spring-consul-example/tree/master/client
 https://cloud.spring.io/spring-cloud-static/spring-cloud-consul/2.2.3.RELEASE/reference/html/appendix.html
 
-#### Script de autoria da Jhipster:
+### Documentação do Gonsul:
 
-https://github.com/jhipster/consul-config-loader
+https://github.com/miniclip/gonsul/tree/master
 
-### Documentação do git2consul:
 
-https://github.com/KohlsTechnology/git2consul-go
 
