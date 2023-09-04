@@ -26,7 +26,7 @@ Neste exemplo, os arquivos que serão enviados para o ***Consul K/V*** estão no
 *git@github.com:LuizYokoyama/prv-test.git*
 
 Os arquivos/diretórios de configuração localizados neste repo serão automaticamente
-atualizados no Consul Keys/Values, a cada *60 segundos*, conforme o parâmetro ***poll-inverval***.
+atualizados no Consul Keys/Values, a cada *60 segundos*, conforme o parâmetro ***poll-interval***.
 
 * Em repo-ssh-key, informe o arquivo de sua chave ssh. O script ja deixará no diretório /.ssh do docker.
 
