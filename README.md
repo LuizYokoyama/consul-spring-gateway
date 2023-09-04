@@ -23,7 +23,7 @@ As configurações podem ser alteradas em:
 
 Neste exemplo, os arquivos que serão enviados para o ***Consul K/V*** estão no repositório privado indicado no parâmetro ***repo-url***.
 
-Será necessário criar seu proprio repositporio privado e informa-lo em ***repo-url***.
+Será necessário criar seu próprio repositório privado e informa-lo em ***repo-url***, do arquivo ***gonsul.conf***.
 
 Este repositório privado possui a seguinte estrutura e conteúdo:
 
@@ -39,7 +39,7 @@ atualizados no Consul Keys/Values, a cada *60 segundos*, conforme o parâmetro *
 * Pode ser que no primeiro uso desta chave o github bloqueie seu uso. Sendo, então, necessário aprovar seu uso em: https://github.com/settings/keys
 
 
-Após a execução do ***docker-compose***, pode-se verificar no Consul Keys/Values os valores atualizados.
+Após a execução do ***docker-compose***, pode-se verificar no ***Consul Keys/Values*** os valores atualizados.
 
 ![img_3.png](img_3.png)
 
