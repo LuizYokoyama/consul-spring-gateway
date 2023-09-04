@@ -10,7 +10,7 @@ application.properties de cada microserviço e do gateway.
 ### Gonsul com ssh
 
 Também está incluíndo no docker um script que roda o Gonsul
-para pegar arquivos .yml .properties etc do github privado com ssh e enviar/atualizar no Consul K/V.
+para pegar arquivos ***.yml .properties etc*** do ***github privado*** com ***ssh*** e *enviar/atualizar* no ***Consul K/V***.
 
 ***Configurações para o Gonsul:***
 
@@ -23,7 +23,7 @@ As configurações podem ser alteradas em:
 
 Neste exemplo, os arquivos que serão enviados para o ***Consul K/V*** estão no repositório privado indicado no parâmetro ***repo-url***:
 
-*git@github.com:LuizYokoyama/prv-test.git*
+*'git@github.com:LuizYokoyama/prv-test.git'*
 
 Os arquivos/diretórios de configuração localizados neste repo serão automaticamente
 atualizados no Consul Keys/Values, a cada *60 segundos*, conforme o parâmetro ***poll-interval***.
