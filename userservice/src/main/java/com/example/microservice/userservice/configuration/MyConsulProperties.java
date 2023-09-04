@@ -1,7 +1,6 @@
 package com.example.microservice.userservice.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyConsulProperties {
 
-    @Value("${teste.teste1}")
+    @Value("${teste6.teste1}")
     private String teste1;
 
-    @Value("${teste.teste2}")
+    @Value("${teste6.teste2}")
     private String teste2;
 
     public void setTeste1(String teste1) {

@@ -31,75 +31,62 @@ services:
       - GONSUL_CONSUL_URL=http://consul-server:8500
     networks:
       - microservices-network
-#
-#  userservice:
-#    container_name: userservice
-#    image: userservice:latest
-#    build:
-#      dockerfile: Dockerfile
-#      context: ./userservice
-#    environment:
-#      SERVICE_NAME: user-service
-#      SERVER_PORT: 3001
-#      CONSUL_HOST: consul-server
-#      CONSUL_PORT: 8500
-#    ports:
-#      - "3001:3001"
-#    links:
-#      - consul-server
-#    networks:
-#      - microservices-network
-#  deptservice:
-#    container_name: deptservice
-#    image: deptservice:latest
-#    environment:
-#      SERVICE_NAME: dept-service
-#      SERVER_PORT: 3002
-#      CONSUL_HOST: consul-server
-#      CONSUL_PORT: 8500
-#    build:
-#      dockerfile: Dockerfile
-#      context: ./deptservice
-#    ports:
-#      - "3002:3002"
-#    links:
-#      - consul-server
-#    networks:
-#      - microservices-network
-#  organizationservice:
-#    container_name: organizationservice
-#    image: organizationservice:latest
-#    environment:
-#      SERVICE_NAME: organization-service
-#      SERVER_PORT: 3003
-#      CONSUL_HOST: consul-server
-#      CONSUL_PORT: 8500
-#    build:
-#      dockerfile: Dockerfile
-#      context: ./orgservice
-#    ports:
-#      - "3003:3003"
-#    links:
-#      - consul-server
-#    networks:
-#      - microservices-network
-#  gatewayservice:
-#    container_name: gatewayservice
-#    image: gatewayservice:latest
-#    environment:
-#      SERVICE_NAME: gateway-service
-#      SERVER_PORT: 8080
-#      CONSUL_HOST: consul-server
-#      CONSUL_PORT: 8500
-#    build:
-#      dockerfile: Dockerfile
-#      context: ./gatewayservice
-#    ports:
-#      - "8080:8080"
-#    links:
-#      - consul-server
-#    networks:
-#      - microservices-network
+
+
+  deptservice:
+    container_name: deptservice
+    image: deptservice:latest
+    environment:
+      SERVICE_NAME: dept-service
+      SERVER_PORT: 3002
+      CONSUL_HOST: consul-server
+      CONSUL_PORT: 8500
+    build:
+      dockerfile: Dockerfile
+      context: ./deptservice
+    ports:
+      - "3002:3002"
+    links:
+      - consul-server
+    networks:
+      - microservices-network
+
+  gatewayservice:
+    container_name: gatewayservice
+    image: gatewayservice:latest
+    environment:
+      SERVICE_NAME: gateway-service
+      SERVER_PORT: 8080
+      CONSUL_HOST: consul-server
+      CONSUL_PORT: 8500
+    build:
+      dockerfile: Dockerfile
+      context: ./gatewayservice
+    ports:
+      - "8080:8080"
+    links:
+      - consul-server
+    networks:
+      - microservices-network
+
+  userservice:
+    container_name: userservice
+    image: userservice:latest
+    build:
+      dockerfile: Dockerfile
+      context: ./userservice
+    environment:
+      SERVICE_NAME: user-service
+      SERVER_PORT: 3001
+      CONSUL_HOST: consul-server
+      CONSUL_PORT: 8500
+    ports:
+      - "3001:3001"
+    links:
+      - consul-server
+    networks:
+      - microservices-network
+
 networks:
   microservices-network:
     driver: bridge

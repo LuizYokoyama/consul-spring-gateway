@@ -6,7 +6,7 @@ RUN apk --update add bash git openssh && \
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
 
-ENV INIT_SLEEP_SECONDS=2
+ENV INIT_SLEEP_SECONDS=5
 
 
 CMD /Gonsul/load-gonsul.sh
