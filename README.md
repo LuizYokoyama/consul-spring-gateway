@@ -55,7 +55,7 @@ que, neste caso, é ***user-service***.  ***default-context***, neste caso, é o
 
 ![img_5.png](img_5.png)
 
-No Consul, a ***chave*** ficará assim: ***user-service/config/teste6*** E o seu ***value*** será o conteúdo do arquivo:
+No Consul, a ***chave*** ficará assim: ***user-service/config/teste6*** e o seu ***value*** será o conteúdo do arquivo:
 
 ![img_3.png](img_3.png)
 
