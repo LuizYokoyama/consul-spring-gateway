@@ -122,11 +122,14 @@ http://0.0.0.0:8080/department/getUsersByDeptId?deptId=1
 
 ### Referências:
 
-https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#What_is_a_POM
-https://blog.devops.dev/spring-boot-microservices-with-consul-spring-cloud-gateway-and-docker-789b624d1d32
-https://github.com/indrabasak/spring-consul-example/tree/master/client
-https://cloud.spring.io/spring-cloud-static/spring-cloud-consul/2.2.3.RELEASE/reference/html/appendix.html
+* https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#What_is_a_POM
+
+* https://blog.devops.dev/spring-boot-microservices-with-consul-spring-cloud-gateway-and-docker-789b624d1d32
+
+* https://github.com/indrabasak/spring-consul-example/tree/master/client
+
+* https://cloud.spring.io/spring-cloud-static/spring-cloud-consul/2.2.3.RELEASE/reference/html/appendix.html
 
 #### Script de autoria da Jhipster:
 
-https://github.com/jhipster/consul-config-loader
+* https://github.com/jhipster/consul-config-loader
